@@ -10,7 +10,7 @@ namespace eCommerce.Infrastructure.Repositories
         {
             // Generate a new guid for user 
             user.UserId = Guid.NewGuid();
-            return user
+            return user;
         }
 
         public async Task<ApplicationUser?> GetUserByEmailAndPassword(string? Email, string? Password)
