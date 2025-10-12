@@ -40,13 +40,15 @@ namespace eCommerce.Core.Services
         public async Task<AuthenticationResponse?> Register(RegisterRequest registerRequest)
         {
             // Create a new Application object from RegisterRequest 
-            ApplicationUser user = new ApplicationUser()
-            {
-                PersonName = registerRequest.PersonName,
-                Email = registerRequest.Email,
-                Password = registerRequest.Password,
-                Gender = registerRequest.Gender.ToString(),
-            };
+            //ApplicationUser user = new ApplicationUser()
+            //{
+            //    PersonName = registerRequest.PersonName,
+            //    Email = registerRequest.Email,
+            //    Password = registerRequest.Password,
+            //    Gender = registerRequest.Gender.ToString(),
+            //};
+
+            var user =_mapper.Map<ApplicationUser>(registerRequest);
 
             ApplicationUser? registerdUser = await _userRepository.AddUser(user);
             
